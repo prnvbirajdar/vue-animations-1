@@ -3,12 +3,6 @@
     <transition name="toast"> <Toast v-if="showToast" /> </transition>
     <Todos @badValue="triggerToast" />
   </div>
-
-  <transition name="fade">
-    <p v-if="pTrue">First transition component</p>
-  </transition>
-
-  <button @click="pTrue = !pTrue">Toggle P</button>
 </template>
 
 <script>
@@ -21,14 +15,12 @@ export default {
   setup() {
     const showToast = ref(false);
 
-    const pTrue = ref(false);
-
     const triggerToast = () => {
       showToast.value = true;
-      setTimeout(() => (showToast.value = false), 3000);
+      setTimeout(() => (showToast.value = false), 2000);
     };
 
-    return { showToast, triggerToast, pTrue };
+    return { showToast, triggerToast };
   },
 };
 </script>
