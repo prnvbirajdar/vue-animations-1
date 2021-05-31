@@ -1,7 +1,7 @@
 <template>
   <div class="toast-wrapper">
     <div class="toast">
-      You must enter a value for the todo
+      Please enter a value for the todo
     </div>
   </div>
 </template>
