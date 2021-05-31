@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Toast v-if="showToast" />
+    <transition name="toast"> <Toast v-if="showToast" /> </transition>
     <Todos @badValue="triggerToast" />
   </div>
 
@@ -34,22 +34,26 @@ export default {
 </script>
 
 <style>
-.fade-enter-from {
+.toast-enter-from {
   opacity: 0;
+  transform: translateY(-60px);
 }
-.fade-enter-to {
+.toast-enter-to {
   opacity: 1;
+  transform: translateY(0);
 }
-.fade-enter-active {
-  transition: all 1s ease;
+.toast-enter-active {
+  transition: all 0.3s ease;
 }
-.fade-leave-from {
+.toast-leave-from {
   opacity: 1;
+  transform: translateY(0);
 }
-.fade-leave-to {
+.toast-leave-to {
   opacity: 0;
+  transform: translateY(-60px);
 }
-.fade-leave-active {
-  transition: all 1s ease;
+.toast-leave-active {
+  transition: all 0.3s ease;
 }
 </style>
